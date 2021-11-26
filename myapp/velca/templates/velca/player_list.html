@@ -1,0 +1,31 @@
+{% extends 'velca/base.html' %}
+{% block content %}
+
+  <table class="table table-striped">
+    <tr>
+      <th>選手名</th>
+      <th>プレイタイム</th>
+      <th>得点</th>
+      <th>アシスト</th>
+      <th>リバウンド</th>
+      <th>オフェンスリバウンド</th>
+      <th>ディフェンスリバウンド</th>
+      <th>スティール</th>
+      <th>ブロック</th>
+    </tr>
+    {% for player_pdata in players_pdata %}
+      <tr>
+        <td>{{ player_pdata.player_name }}</td>
+        <td>{{ player_pdata.play_time }}</td>
+        <td>{{ player_pdata.score }}</td>
+        <td>{{ player_pdata.assist }}</td>
+        <td>{{ player_pdata.rebound }}</td>
+        <td>{{ player_pdata.o_rebound }}</td>
+        <td>{{ player_pdata.d_rebound }}</td>
+        <td>{{ player_pdata.steel }}</td>
+        <td>{{ player_pdata.block }}</td>
+      </tr>
+    {% endfor %}
+
+  </table>
+{% endblock %}
