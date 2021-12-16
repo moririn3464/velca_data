@@ -1,0 +1,78 @@
+{% extends 'velca/base.html' %}
+{% block content %}
+
+  <table class="table table-striped">
+    <tr>
+      <th>HOME</th>
+      <th>選手名</th>
+      <th>プレイタイム</th>
+      <th>得点</th>
+      <th>アシスト</th>
+      <th>リバウンド</th>
+      <th>オフェンスリバウンド</th>
+      <th>ディフェンスリバウンド</th>
+      <th>スティール</th>
+      <th>ブロック</th>
+    </tr>
+
+    {% for data in game_list %}
+      <tr>
+        <td>{{ data.home_club }}</td>
+
+        {% for player in home_player %}
+          <td>{{ player.name }}</td>
+        {% endfor %}
+
+        {% for stats in home_player_stats_list %}
+          <td>{{ stats.play_time }}</td>
+          <td>{{ stats.score }}</td>
+          <td>{{ stats.assist }}</td>
+          <td>{{ stats.rebound }}</td>
+          <td>{{ stats.o_rebound }}</td>
+          <td>{{ stats.d_rebound }}</td>
+          <td>{{ stats.steel }}</td>
+          <td>{{ stats.block }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+
+
+  <table class="table table-striped">
+    <tr>
+      <th>AWAY</th>
+      <th>選手名</th>
+      <th>プレイタイム</th>
+      <th>得点</th>
+      <th>アシスト</th>
+      <th>リバウンド</th>
+      <th>オフェンスリバウンド</th>
+      <th>ディフェンスリバウンド</th>
+      <th>スティール</th>
+      <th>ブロック</th>
+    </tr>
+    {% for data in game_list %}
+    <tr>
+      <td>{{ data.away_club }}</td>
+    
+      {% for player in away_player %}
+      <td>{{ player.name }}</td>
+      {% endfor %}
+    
+      {% for stats in away_player_stats_list %}
+      <td>{{ stats.play_time }}</td>
+      <td>{{ stats.score }}</td>
+      <td>{{ stats.assist }}</td>
+      <td>{{ stats.rebound }}</td>
+      <td>{{ stats.o_rebound }}</td>
+      <td>{{ stats.d_rebound }}</td>
+      <td>{{ stats.steel }}</td>
+      <td>{{ stats.block }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+    
+
+  </table>
+  
+{% endblock %}

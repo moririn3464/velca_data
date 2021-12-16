@@ -13,17 +13,23 @@
       <th>スティール</th>
       <th>ブロック</th>
     </tr>
-    {% for player_pdata in players_pdata %}
+
+    {% for stats in object_list %}
       <tr>
-        <td>{{ player_pdata.player_name }}</td>
-        <td>{{ player_pdata.play_time }}</td>
-        <td>{{ player_pdata.score }}</td>
-        <td>{{ player_pdata.assist }}</td>
-        <td>{{ player_pdata.rebound }}</td>
-        <td>{{ player_pdata.o_rebound }}</td>
-        <td>{{ player_pdata.d_rebound }}</td>
-        <td>{{ player_pdata.steel }}</td>
-        <td>{{ player_pdata.block }}</td>
+        <td>
+          {{ stats.name }}
+          <!-- {% for name in stats.player_name.all %}
+            {{ name.name }}
+          {% endfor %} -->
+        </td>
+        <td>{{ stats.play_time }}</td>
+        <td>{{ stats.score }}</td>
+        <td>{{ stats.assist }}</td>
+        <td>{{ stats.rebound }}</td>
+        <td>{{ stats.o_rebound }}</td>
+        <td>{{ stats.d_rebound }}</td>
+        <td>{{ stats.steel }}</td>
+        <td>{{ stats.block }}</td>
       </tr>
     {% endfor %}
 
