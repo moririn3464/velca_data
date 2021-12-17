@@ -10,10 +10,11 @@ class Game(models.Model):
   home_club = models.ForeignKey(Club, on_delete=models.DO_NOTHING, related_name="home_club")
   away_club = models.ForeignKey(Club, on_delete=models.DO_NOTHING, related_name="away_club")
   game_stats = models.ManyToManyField(Stats)
+  matchday = models.DateField(verbose_name='試合日')
 
   def __str__(self):
-    # return self.matchday.strftime('%Y/%m/%d')
-    return self.home_club
+    return self.matchday.strftime('%Y/%m/%d')
+    # return str(self.home_club)
 
   class Meta:
     verbose_name = "試合情報"

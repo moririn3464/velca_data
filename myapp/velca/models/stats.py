@@ -21,5 +21,8 @@ class Stats(models.Model):
     verbose_name = "スタッツ"
     verbose_name_plural = "スタッツ"
 
+  def __str__(self):
+    return str(self.playername)
+
     
 
