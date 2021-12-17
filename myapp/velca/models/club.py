@@ -5,3 +5,7 @@ class Club(models.Model):
 
   def __str__(self):
       return self.club_name
+
+  class Meta:
+    verbose_name = "クラブ名"
+    verbose_name_plural = "クラブ名"

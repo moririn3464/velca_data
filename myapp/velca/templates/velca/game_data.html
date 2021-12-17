@@ -16,29 +16,29 @@
     </tr>
 
     {% for data in game_list %}
-      <tr>
-        <td>{{ data.home_club }}</td>
-
-        {% for player in home_player %}
-          <td>{{ player.name }}</td>
-        {% endfor %}
-
-        {% for stats in home_player_stats_list %}
-          <td>{{ stats.play_time }}</td>
-          <td>{{ stats.score }}</td>
-          <td>{{ stats.assist }}</td>
-          <td>{{ stats.rebound }}</td>
-          <td>{{ stats.o_rebound }}</td>
-          <td>{{ stats.d_rebound }}</td>
-          <td>{{ stats.steel }}</td>
-          <td>{{ stats.block }}</td>
-        {% endfor %}
-      </tr>
+      {% for player in home_player %}
+          <tr>
+            <td>{{ data.home_club }}</td>
+            {% for stats in data.game_stats.all %}
+              {% for name in stats.player_name.name %}
+              <td>{{ name.name }}</td>
+              {% endfor %}
+              <td>{{ stats.play_time }}</td>
+              <td>{{ stats.score }}</td>
+              <td>{{ stats.assist }}</td>
+              <td>{{ stats.rebound }}</td>
+              <td>{{ stats.o_rebound }}</td>
+              <td>{{ stats.d_rebound }}</td>
+              <td>{{ stats.steel }}</td>
+              <td>{{ stats.block }}</td>
+            {% endfor %}
+          </tr>
+      {% endfor %}
     {% endfor %}
   </table>
 
 
-  <table class="table table-striped">
+  <!-- <table class="table table-striped">
     <tr>
       <th>AWAY</th>
       <th>選手名</th>
@@ -73,6 +73,6 @@
     {% endfor %}
     
 
-  </table>
+  </table> -->
   
 {% endblock %}

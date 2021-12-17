@@ -1,14 +1,14 @@
 from typing import List
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
-from .models import Player, Club, Stats, Game
+from .models import Player_personal, Club, Stats, Game
 
 def index(request):
   return render(request, 'velca/index.html')
 
 
 class PlayerListView(ListView):
-  model = Player
+  model = Player_personal
 
 
 class GameDataView(ListView):
