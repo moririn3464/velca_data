@@ -1,10 +1,13 @@
 from typing import Callable
 from django.db import models
-from .player_name import Player_name
+from .playername import Playername
+from .player_personal import Player_personal
+from .game import Game
 
 class Stats(models.Model):
+  game = models.ForeignKey(Game, on_delete=models.DO_NOTHING, related_name="game_stats")
   game_day = models.DateField(verbose_name='試合日')
-  playername = models.ForeignKey(Player_name, on_delete=models.CASCADE, verbose_name='プレイヤー名')
+  player = models.ForeignKey(Player_personal, on_delete=models.CASCADE, verbose_name='プレイヤー名')
   play_time = models.IntegerField('プレイタイム', default=0)
   score = models.IntegerField('得点', default=0)
   assist = models.IntegerField('アシスト数', default=0)
@@ -22,7 +25,7 @@ class Stats(models.Model):
     verbose_name_plural = "スタッツ"
 
   def __str__(self):
-    return str(self.playername)
+    return str(self.player)
 
     
 

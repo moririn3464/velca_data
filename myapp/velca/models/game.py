@@ -2,14 +2,12 @@ from typing import Callable
 from django.db import models
 from .club import Club
 from .player_personal import Player_personal
-from .stats import Stats
 
 class Game(models.Model):
   home_roster = models.ManyToManyField(Player_personal, related_name="home_roster")
   away_roster = models.ManyToManyField(Player_personal, related_name="away_roster")
   home_club = models.ForeignKey(Club, on_delete=models.DO_NOTHING, related_name="home_club")
   away_club = models.ForeignKey(Club, on_delete=models.DO_NOTHING, related_name="away_club")
-  game_stats = models.ManyToManyField(Stats)
   matchday = models.DateField(verbose_name='試合日')
 
   def __str__(self):

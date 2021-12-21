@@ -1,7 +1,7 @@
 from typing import Callable
 from django.db import models
 
-class Player_name(models.Model):
+class Playername(models.Model):
   name = models.CharField('選手名', max_length=255)
 
   class Meta:
