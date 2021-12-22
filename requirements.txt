@@ -1,3 +1,4 @@
 Django==3.2
 mysqlclient
 django-environ==0.8.0
+django-debug-toolbar==3.2.2
