@@ -1,0 +1,16 @@
+{% extends 'velca/base.html' %}
+{% block title %}{{ club.club_name }}{% endblock %}
+{% block content %}
+<h1 class="mt-5 mb-4">{{ club.club_name }}</h1>
+  <h2>一覧</h2>
+  <table class="table table-striped">
+    <tr>
+      <th>名前</th>
+    </tr>
+    {% for club in club_player_list %}
+    <tr>
+      <td>{{ club.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
