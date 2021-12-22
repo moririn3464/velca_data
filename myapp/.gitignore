@@ -108,3 +108,4 @@ db.json
 sqlite-autoconf-3370000/
 player.json
 result.csv
+.DS_Store
