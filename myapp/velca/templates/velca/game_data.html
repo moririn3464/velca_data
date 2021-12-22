@@ -1,15 +1,16 @@
 {% extends 'velca/base.html' %}
+{% block title %}{{ game_detail.matchday }}{% endblock %}
 {% block content %}
-
+  <h1 class="mt-5 mb-4">試合一覧</h1>
   <table class="table table-striped">
     <tr>
       <th>試合日</th>
     </tr>
 
     {% for data in object_list %}
-          <tr>
-            <td><a href="{% url 'velca:game_detail' game_id=data.id %}">{{ data.matchday }}</a></td>
-          </tr>
+      <tr>
+        <td><a href="{% url 'velca:game_detail' game_id=data.id %}" class="link-dark text-decoration-none">{{ data.matchday }}　{{ data.home_club }} VS {{ data.away_club }}</a></td>
+      </tr> 
     {% endfor %}
   </table>
 

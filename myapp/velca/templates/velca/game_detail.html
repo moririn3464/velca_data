@@ -1,6 +1,7 @@
 {% extends 'velca/base.html' %}
+{% block title %}{{ game_detail.matchday }}{% endblock %}
 {% block content %}
-
+  <h1 class="mt-5 mb-4">{{ game_detail.matchday }}　{{ game_detail.home_club }} VS {{ game_detail.away_club }}</h1>
   <table class="table table-striped">
     <tr>
       <th>選手名</th>
