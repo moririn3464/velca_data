@@ -30,6 +30,12 @@ def game_detail(request, game_id):
     })
 
 
+
+class ClubDataView(ListView):
+  template_name = 'velca/club_list.html'
+  model = Club
+
+
 class ClubDetail(DetailView):
   model = Club
   template_name = "velca/club_detail.html"
