@@ -1,0 +1,48 @@
+{% extends 'velca/base.html' %}
+{% block title %}{{ game_detail.matchday }}{% endblock %}
+{% block content %}
+  <h1 class="mt-5 mb-4">{{ game_detail.matchday }}　{{ game_detail.home_club }} VS {{ game_detail.away_club }}</h1>
+  <table class="table table-striped">
+    <tr>
+      <th>選手名</th>
+      <th>背番号</th>
+      <th>所属チーム</th>
+    </tr>
+        {% for personal in player_personal_list %}
+          <tr>
+            <td>{{ personal.name }}</td>
+            <td>{{ personal.jersey_number }}</td>
+            <td>{{ personal.players_team }}</td>
+          </tr>
+        {% endfor %}
+  </table>
+
+  <table class="table table-striped">
+    <tr>
+      <th>選手名</th>
+      <th>プレイタイム</th>
+      <th>得点</th>
+      <th>アシスト</th>
+      <th>リバウンド</th>
+      <th>オフェンスリバウンド</th>
+      <th>ディフェンスリバウンド</th>
+      <th>スティール</th>
+      <th>ブロック</th>
+    </tr>
+        {% for stats in opponent_stats %}
+          <tr>
+            <td>{{ stats.player.name }}</td>
+            <td>{{ stats.play_time }}</td>
+            <td>{{ stats.score }}</td>
+            <td>{{ stats.assist }}</td>
+            <td>{{ stats.rebound }}</td>
+            <td>{{ stats.d_rebound }}</td>
+            <td>{{ stats.o_rebound }}</td>
+            <td>{{ stats.steel }}</td>
+            <td>{{ stats.block }}</td>
+          </tr>
+        {% endfor %}
+  </table>
+
+  
+{% endblock %}

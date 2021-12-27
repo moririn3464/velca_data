@@ -45,3 +45,15 @@ class ClubDetail(DetailView):
       club_player_list = Player_personal.objects.filter(players_team_id=self.kwargs['pk'])  # pkを指定してデータを絞り込む
       context['club_player_list'] = club_player_list
       return context
+
+
+class PlayerDetail(DetailView):
+  model = Player_personal
+  template_name = "velca/player_personal.html"
+
+  def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      player_personal = Player_personal.objects.filter(
+          id=self.kwargs['pk'])  # pkを指定してデータを絞り込む
+      context['player_personal_list'] = player_personal
+      return context

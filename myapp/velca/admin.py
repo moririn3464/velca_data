@@ -14,10 +14,26 @@ from .models import Club, Player_personal, Stats, Game, Playername
 
 
 class StatsAdmin(admin.ModelAdmin):
-  list_display = ['get_player_name']
+  model = Stats
+  list_display = ('game_day', 'player', 'get_club')
 
-  def get_player_name(self, obj):
-      return "\n".join([p.name for p in obj.playername.all()])
+  def get_club(self, obj):
+    return obj.player.players_team
+  
+  get_club.short_description = '所属クラブ'
 
-myModels = [Club, Player_personal, Stats, Game, Playername]
+
+class Player_personalAdmin(admin.ModelAdmin):
+  model = Player_personal
+  list_display = ('name', 'players_team')
+
+
+class GameAdmin(admin.ModelAdmin):
+  model = Game
+  list_display = ('matchday', 'home_club', 'away_club')
+
+myModels = [Club, Playername]
 admin.site.register(myModels)
+admin.site.register(Stats, StatsAdmin)
+admin.site.register(Player_personal, Player_personalAdmin)
+admin.site.register(Game, GameAdmin)
