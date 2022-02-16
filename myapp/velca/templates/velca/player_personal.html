@@ -7,39 +7,14 @@
       <th>選手名</th>
       <th>背番号</th>
       <th>所属チーム</th>
+      <th>生年月日</th>
     </tr>
         {% for personal in player_personal_list %}
           <tr>
             <td>{{ personal.name }}</td>
             <td>{{ personal.jersey_number }}</td>
             <td>{{ personal.players_team }}</td>
-          </tr>
-        {% endfor %}
-  </table>
-
-  <table class="table table-striped">
-    <tr>
-      <th>選手名</th>
-      <th>プレイタイム</th>
-      <th>得点</th>
-      <th>アシスト</th>
-      <th>リバウンド</th>
-      <th>オフェンスリバウンド</th>
-      <th>ディフェンスリバウンド</th>
-      <th>スティール</th>
-      <th>ブロック</th>
-    </tr>
-        {% for stats in opponent_stats %}
-          <tr>
-            <td>{{ stats.player.name }}</td>
-            <td>{{ stats.play_time }}</td>
-            <td>{{ stats.score }}</td>
-            <td>{{ stats.assist }}</td>
-            <td>{{ stats.rebound }}</td>
-            <td>{{ stats.d_rebound }}</td>
-            <td>{{ stats.o_rebound }}</td>
-            <td>{{ stats.steel }}</td>
-            <td>{{ stats.block }}</td>
+            <td>{{ personal.player_birthday|date:"Y-m-d" }}</td>
           </tr>
         {% endfor %}
   </table>
